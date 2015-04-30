@@ -2,6 +2,7 @@ from openerp.osv import osv, fields
 
 class product_image(osv.Model):
     _name = 'product.image'
+    _order = 'sequence_edit'
 
     _columns = {
         'name': fields.char('Name'),
@@ -10,6 +11,10 @@ class product_image(osv.Model):
         'image': fields.binary('Image'),
         'image_small': fields.binary('Small Image'),
         'product_tmpl_id': fields.many2one('product.template', 'Product'),
+        'sequence_edit': fields.integer(),
+    }
+    _defaults {
+        'sequence_edit': 10,
     }
 product_image()
 
